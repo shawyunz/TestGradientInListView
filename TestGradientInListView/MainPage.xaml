@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TestGradientInListView.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+    xmlns:testgradientinlistview="clr-namespace:TestGradientInListView">
+    <StackLayout>
+        <renderedViews:HorizontalListView
+            x:Name="MyListView1"
+            VerticalOptions="FillAndExpand"
+            ColumnCount="3"
+            EnableDragAndDrop="True"
+            ListLayout="Grid"
+            ItemHeight="125"
+            ItemSpacing="10">
+            <renderedViews:HorizontalListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!--  good on Android  -->
+                        <StackLayout>
+                            <testgradientinlistview:GradientLabel Text="Android" FontSize="32" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </renderedViews:HorizontalListView.ItemTemplate>
+        </renderedViews:HorizontalListView>
+        <renderedViews:HorizontalListView
+            x:Name="MyListView2"
+            VerticalOptions="FillAndExpand"
+            ColumnCount="3"
+            EnableDragAndDrop="True"
+            ListLayout="Grid"
+            ItemHeight="125"
+            ItemSpacing="10">
+            <renderedViews:HorizontalListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!--  good on iOS  -->
+                        <testgradientinlistview:GradientLabel Text="iOS" FontSize="40" />
+                    </ViewCell>
+                </DataTemplate>
+            </renderedViews:HorizontalListView.ItemTemplate>
+        </renderedViews:HorizontalListView>
+
+        <BoxView
+            HeightRequest="1"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="Gray" />
+
+        <testgradientinlistview:GradientLabel Text="Expected Label" FontSize="40" />
+    </StackLayout>
+</ContentPage>
